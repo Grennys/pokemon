@@ -1,0 +1,55 @@
+<br>
+<div class="container" style="width: 80%; height: 400px; font-family:cursive;">
+    <h1  >Busca tu pokemon favorito</h1>    
+    <hr>
+    <div class="row">        
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <form>                
+                <h5 class="card-title">Consulta por nombre</h5>
+                <hr>                            
+                <label for="exampleInputEmail1">Nombre</label>
+                <input type="text" name="name" #myNameElem formControlName="name" class="form-control"  aria-describedby="emailHelp" placeholder="Nombre pokemon">
+                <br>
+                <button type="button" (click)="getHabilidades()" class="btn btn-primary">Buscar</button>
+              </form>             
+              <!-- <img src="../../../../assets/img/poke-nombre.jpg " style="width: 100%; height: 500px; " alt="">               -->
+              <br>
+            </div>
+          </div>            
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div *ngIf = "pokemones" class="card-body">                
+                <h5 class="card-title">Detalles de <b> {{pokemones.name}} </b></h5>
+                <hr>
+                <ul >  
+                  <li><b>Nombre: </b>{{pokemones.name}}</li>                                            
+                </ul>
+                <ul *ngFor="let poke of dataAbilidades" >
+                  <li><b>Habilidad: </b>{{poke}}</li>
+                </ul>
+                <ul *ngFor="let poke of dataEspecie" >
+                  <li><b>Especie: </b>{{poke}}</li>
+                </ul>
+            </div>
+            <div *ngIf = "!pokemones" class="card-body">                
+              <h5 class="card-title">Detalles de pokemon</h5>
+              <hr>
+          </div>
+          </div>          
+        </div>
+    </div>
+    <br>
+    <button type="button" routerLink="/inicio" class="btn btn-primary btn-rounded">Regresar</button>
+    <br><br><br><br><br>
+</div>
+
+
+
+
+
+
+
+
